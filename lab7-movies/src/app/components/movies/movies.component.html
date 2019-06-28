@@ -1,0 +1,87 @@
+<!-- <div>
+    Page: {{movies.currentPage}} of {{movies.numberOfPages}}
+</div>
+<ul>
+    <li *ngFor ="let f of movies.entries" (click)="goBack()">{{f.title}}</li>
+</ul>-->
+
+<table *ngIf = "movies" mat-table [dataSource]="movies.entries" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+  
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+     <!-- Genre Column -->
+     <ng-container matColumnDef="genre">
+        <th mat-header-cell *matHeaderCellDef> Genre </th>
+        <td mat-cell *matCellDef="let element"> {{element.genre}} </td>
+      </ng-container>
+  
+        <!-- DateAdded Column -->
+     <ng-container matColumnDef="dateAdded">
+        <th mat-header-cell *matHeaderCellDef> Date Added </th>
+        <td mat-cell *matCellDef="let element"> {{element.dateAdded}} </td>
+      </ng-container>
+
+        <!-- Duration Column -->
+     <ng-container matColumnDef="duration">
+        <th mat-header-cell *matHeaderCellDef> Duration </th>
+        <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+      </ng-container>
+
+        <!-- ReleaseYear Column -->
+     <ng-container matColumnDef="releaseYear">
+        <th mat-header-cell *matHeaderCellDef> Release Year </th>
+        <td mat-cell *matCellDef="let element"> {{element.releaseYear}} </td>
+      </ng-container>
+
+        <!-- Director Column -->
+     <ng-container matColumnDef="director">
+        <th mat-header-cell *matHeaderCellDef> Director </th>
+        <td mat-cell *matCellDef="let element"> {{element.director}} </td>
+     </ng-container>
+
+        <!-- Rating Column -->
+     <ng-container matColumnDef="rating">
+        <th mat-header-cell *matHeaderCellDef> Rating </th>
+        <td mat-cell *matCellDef="let element"> {{element.rating}} </td>
+     </ng-container>
+
+        <!-- Watched Column -->
+     <ng-container matColumnDef="watched">
+        <th mat-header-cell *matHeaderCellDef> Watched </th>
+        <td mat-cell *matCellDef="let element"> {{element.watched}} </td>
+     </ng-container>
+
+     <!-- NumberOfComments Column -->
+     <ng-container matColumnDef="numberOfComments">
+        <th mat-header-cell *matHeaderCellDef> Number Of Comments </th>
+        <td mat-cell *matCellDef="let element"> {{element.numberOfComments}} </td>
+     </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!--<mat-paginator [pageSizeOptions]="[2, 3, 5]" showFirstLastButtons></mat-paginator>-->
+
+<div>
+   <button id="goBack" (click)="goBack()">
+      <mat-icon>home</mat-icon>
+      <span>Go Back</span>
+   </button>
+</div>
+
+
+

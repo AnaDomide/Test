@@ -1,0 +1,81 @@
+<table *ngIf="comments" mat-table [dataSource]="comments.entries" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Text Column -->
+    <ng-container matColumnDef="text">
+      <th mat-header-cell *matHeaderCellDef> Text </th>
+      <td mat-cell *matCellDef="let element"> {{element.text}} </td>
+    </ng-container>
+  
+    <!-- IdMovie Column -->
+    <ng-container matColumnDef="idMovie">
+      <th mat-header-cell *matHeaderCellDef> Id Movie </th>
+      <td mat-cell *matCellDef="let element"> {{element.idMovie}} </td>
+    </ng-container>
+
+     <!-- Important Column -->
+     <ng-container matColumnDef="important">
+        <th mat-header-cell *matHeaderCellDef> Important </th>
+        <td mat-cell *matCellDef="let element"> {{element.important}} </td>
+      </ng-container>       
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div>
+   <button id="goBack" (click)="goBack()">
+      <mat-icon>home</mat-icon>
+      <span>Go Back</span>
+   </button>
+</div>
+
+<div>
+  <hr>
+  <span> Filter comments</span>
+</div>
+
+<div>
+  <form class="filter-form">
+    <mat-form-field class="filter-full-width">
+      <input matInput placeholder="Filter String" value="Filter" #filter>
+    </mat-form-field>
+  </form>
+  <button id="filter" (click)="filterComment(filter.value)">
+    <span>Filter</span>
+  </button>
+</div>
+
+<div>
+    <hr>
+    <span> Show filtered comments</span>
+  </div>
+
+<table *ngIf="commentsFiltrare" mat-table [dataSource]="commentsFiltrare.entries" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Text Column -->
+    <ng-container matColumnDef="text">
+      <th mat-header-cell *matHeaderCellDef> Text </th>
+      <td mat-cell *matCellDef="let element"> {{element.text}} </td>
+    </ng-container>
+  
+    <!-- IdMovie Column -->
+    <ng-container matColumnDef="idMovie">
+      <th mat-header-cell *matHeaderCellDef> Id Movie </th>
+      <td mat-cell *matCellDef="let element"> {{element.idMovie}} </td>
+    </ng-container>
+
+     <!-- Important Column -->
+     <ng-container matColumnDef="important">
+        <th mat-header-cell *matHeaderCellDef> Important </th>
+        <td mat-cell *matCellDef="let element"> {{element.important}} </td>
+      </ng-container>       
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
